@@ -35,6 +35,24 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', uptime: process.uptime() });
 });
 
+// const Product = require('./models/Product');
+// const validate = require('./middleware/validate');
+// const { createProductSchema } = require('./validations/productValidation');
+// const catchAsync = require('./utils/catchAsync');
+
+// // Route verifying Zod validation -> Mongoose model -> MongoDB Atlas write
+// app.post(
+//   '/api/test-product-create',
+//   validate(createProductSchema),
+//   catchAsync(async (req, res) => {
+//     const product = await Product.create(req.body);
+//     res.status(201).json({
+//       status: 'success',
+//       data: { product },
+//     });
+//   })
+// );
+
 // 7. Test Route for Operational Error
 app.get('/api/test-error', (req, res, next) => {
   next(new AppError('Intentional operational error verification', 400));
